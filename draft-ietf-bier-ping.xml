@@ -1346,7 +1346,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
           <dd>A two-octet field. The value MUST be zeroed on transmission and ignored on receipt.</dd>
             <dt>Address Family</dt>
             <dd>
-      A two-octet field. Set its value according to <xref target="address-types-tbl"/>.
+      A two-octet field. Set its value according to <xref target="ip-address-types-tbl"/>.
      </dd>
           </dl>
           <dl newline="true" spacing="normal" indent="3">
@@ -1495,8 +1495,8 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
    the Initiator expects a response.  In the traceroute mode, the
    Initiator MAY include Target SI-BitString TLV to control the path
    trace towards any specific BFER or set of BFERs.  The Initiator on
-   receiving a reply with the Return code "Replying BFR is the only BFER in the header BitString"
-   or "Replying router is one of the BFERs in header BitString" MUST unset the respective BFR-ID from
+   receiving a reply with the Return code "Replying BFR is the only BFER in header BitString"
+   or "Replying BFR is one of the BFERs in header BitString" MUST unset the respective BFR-ID from
    Target SI-BitString for any subsequent Echo Request.</t>
         <t>
    The Initiator MAY include DDMAP TLV (<xref target="sect-3.3.4"/>) in
@@ -1509,7 +1509,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
    MUST set the Proto as 5. In ping mode, the TTL field in the BIER header MUST be set to 255.  In
    traceroute mode, the TTL in the BIER header is set successively, starting
    from 1 and MUST stop sending the Echo Request if it receives a reply
-   with Return code as "Replying router is the only BFER in BIER header BitString" from all BFER listed in Target SI-BitString TLV.
+   with Return code as "Replying BFR is the only BFER in header BitString" from all BFER listed in Target SI-BitString TLV.
    </t>
       </section>
       
@@ -1646,11 +1646,11 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
       </t>
 
         <ul spacing="normal">
-          <li>Set the Best-return-code to "Replying router is the only BFER
-          in BIER header BitString", and go to <xref target="sect-4.5"/> if the Responder is
+          <li>Set the Best-return-code to "Replying BFR is the only BFER
+          in header BitString", and go to <xref target="sect-4.5"/> if the Responder is
       BFER and there are no more bits in the BIER header BitString left for
       forwarding.</li>
-          <li>Set the Best-return-code to "Replying router is one of the BFERs in BIER header BitString", and include DDMAP TLV if the
+          <li>Set the Best-return-code to "Replying BFR is one of the BFERs in header BitString", and include DDMAP TLV if the
       Responder is BFER and there are more bits in BitString left for
       forwarding.  Also, include the Multipath information as defined in
       <xref target="sect-4.2" format="default"/> if the received Echo Request carries Multipath Entropy
@@ -2137,6 +2137,12 @@ The TLVs requested by this document for the IANA
             <tr>
              <td align="left">6</td>
               <td align="center">Responder BFR</td>
+              <td align="left">This document</td>
+              <td align="left">No Sub-TLVs</td>
+            </tr>
+            <tr>
+             <td align="left">7</td>
+              <td align="center">Ingress Interface</td>
               <td align="left">This document</td>
               <td align="left">No Sub-TLVs</td>
             </tr>
