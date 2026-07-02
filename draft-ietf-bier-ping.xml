@@ -1842,7 +1842,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
      <section anchor="iana-echo-ping-parameters" numbered="true" toc="default">
         <name>BIER Echo Request/Echo Reply Registries</name>
         <t>
-  IANA is requested to create three BIER Echo Request/Echo Reply registries in the BIER OAM registry group, as described below.
+  IANA is requested to create two BIER Echo Request/Echo Reply registries in the BIER OAM registry group, as described below.
         </t>
         
       <section anchor="iana-bier-ping-reply-mode" numbered="true" toc="default">
