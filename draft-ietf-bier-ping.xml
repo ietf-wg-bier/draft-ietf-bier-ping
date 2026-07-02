@@ -211,7 +211,7 @@ This document specifies the mechanism and basic BIER OAM packet
       Otherwise, the value is one from the IANA registry "BIER Next Protocol Identifiers" <xref target="IANA-Next-Protocol-Identifiers"/>.</li>
       <li>Reserved - a two-octet field. The value MUST be zeroed on transmission and ignored on receipt.</li>
         <li>BIER OAM Message Length - a four-octet field that reflects the length of the OAM message in octets, including the
-      header and the Messsage Type Dependent Data.</li>
+      header and the Message Type Dependent Data.</li>
       </ul>
 </section>
 
@@ -311,7 +311,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
    This mode can be used for unidirectional path validation.  When the
    Reply Mode is set to 2, the Responder Bit-Forwarding Router (BFR) encapsulates the Echo
    reply payload with the IP/UDP header. The Responder BFR uses the BFIR-id field in the BIER header to
-   determine which IP address family to use in the IP/UDP encaspulation. If the BFIR-id is associated with IPv4 and IPv6 addresses,
+   determine which IP address family to use in the IP/UDP encapsulation. If the BFIR-id is associated with IPv4 and IPv6 addresses,
    the Responder uses its local policy to select the address family. When the Initiator intends to validate
    the return BIER path, the Reply Mode will be set to 3 so that the
    Responder BFR will encapsulate the Echo Reply with the BIER header.
@@ -2017,7 +2017,7 @@ This section describes registration procedures for Type registries in BIER Echo 
         </t>
 
            <table anchor="iana-bier-assign-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>TLV and Sub-TLV Registration Ranges</name>
           <thead>
             <tr>
               <th align="left">Range</th>
@@ -2073,7 +2073,7 @@ This section describes registration procedures for Type registries in BIER Echo 
         <name>TLVs</name>
         <t>
            IANA is requested to create in the BIER OAM registry group a registry for the Type field
-           of top-level TLVs. as well as sub-registries for the associated sub-TLVs. Note that the
+           of top-level TLVs, as well as sub-registries for the associated sub-TLVs. Note that the
    meaning of a sub-TLV is scoped by the TLV.  The number of spaces for the
    sub-TLVs of various TLVs is independent.
 </t>
@@ -2088,7 +2088,7 @@ The TLVs requested by this document for the IANA
    </t>
    
            <table anchor="iana-bier-ping-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>BIER OAM TLVs</name>
           <thead>
             <tr>
               <th align="left">Type</th>
@@ -2164,7 +2164,7 @@ The TLVs requested by this document for the IANA
         </ul>
 
            <table anchor="iana-bier-ping-sub-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>Sub-TLVs for TLV Type 4</name>
           <thead>
             <tr>
               <th align="left">Type</th>
