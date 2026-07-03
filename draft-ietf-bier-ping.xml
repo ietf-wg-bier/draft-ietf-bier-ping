@@ -297,7 +297,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
       64-bit truncated version (48-bit sec + 16-bit nsec) format.</li>
       <li>RTF (Responder Timestamp Format) - a four-bit field. When the field is set to 2, the Timestamp Received
       field is (in seconds and picoseconds, according to the
-      Initiator's clock) in 64-bit long NTP format <xref target="RFC5905" format="default"/>. When field's value is 3, the
+      responding BFR's clock) in 64-bit long NTP format <xref target="RFC5905" format="default"/>. When field's value is 3, the
       format of the Timestamp Received is as defined in IEEE 1588-2008 (1588v2) Precision Time
       Protocol <xref target="IEEE.1588.2008"/> for 64-bit truncated version (48-bit sec + 16-bit nsec).
       The Initiator MUST zero RTF in the Echo Request, and the Responder MUST ignore the value on receipt.
