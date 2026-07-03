@@ -1746,7 +1746,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
    This document requests a UDP port TBD1 to be allocated by IANA for
    BIER Echo.</t>
       <t>Service Name bier-echo</t>
-      <t>Transport Protocol UDP, TCP</t>
+      <t>Transport Protocol UDP</t>
       <t>Assignee IESG iesg@ietf.org</t>
       <t>Contact IETF Chair chair@ietf.org</t>
       <t>Description The UDP destination port number for the IP/UDP encapsulated BIER Echo Reply message.</t>
