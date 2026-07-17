@@ -2094,7 +2094,7 @@ The TLVs requested by this document for the IANA
    </t>
    
            <table anchor="iana-bier-ping-tlvs-tbl" align="center">
-          <name>BIER OAM TLVs</name>
+          <name>TLVs</name>
           <thead>
             <tr>
               <th align="left">Type</th>
