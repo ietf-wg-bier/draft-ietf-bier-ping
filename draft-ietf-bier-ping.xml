@@ -1839,19 +1839,25 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
         </table>
  </section>
 
+      <section anchor="iana-bier-echo-registry-group" numbered="true" toc="default">
+        <name>BIER Echo Request/Reply Registry Group</name>
+        <t>
+   IANA is requested to create and maintain the "BIER Echo Request/Reply" registry group containing the registries listed below.</t>
+      </section>
+
      <section anchor="iana-echo-ping-parameters" numbered="true" toc="default">
         <name>BIER Echo Request/Echo Reply Registries</name>
         <t>
-  IANA is requested to create three BIER Echo Request/Echo Reply registries in the BIER OAM registry group, as described below.
+  IANA is requested to create three BIER Echo Request/Echo Reply registries in the BIER Echo Request/Reply registry group, as described below.
         </t>
-        
+
       <section anchor="iana-bier-ping-reply-mode" numbered="true" toc="default">
-        <name>BIER Echo Reply Modes</name>
+        <name>Reply Modes</name>
           <t>
-    IANA is requested to create in the BIER OAM registry group the new BIER Echo Reply Mode registry as follows:
+    IANA is requested to create in the BIER Echo Request/Reply registry group the new Reply Modes registry as follows:
     </t>
         <ul empty="true" spacing="normal">
-        <li>Registry Name: BIER Echo Reply Mode</li>
+        <li>Registry Name: Reply Modes</li>
         <li>Assignment Policy:</li>
         <li>0 - 247 - IETF Review</li>
         <li>248 - 251 - Experimental Use (Reserved, not to be assigned)</li>
@@ -1859,7 +1865,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
         </ul>
         
         <table anchor="iana-bier-reply-modes-tbl" align="center">
-          <name>BIER Echo Reply Modes</name>
+          <name>Reply Modes</name>
           <thead>
             <tr>
               <th align="left">Value</th>
@@ -1913,20 +1919,20 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
       </section>
 
       <section anchor="iana-bier-ping-return-codes" numbered="true" toc="default">
-        <name>BIER Echo Return Codes</name>
+        <name>Return Codes</name>
    <t>
-    IANA is requested to create in the BIER OAM registry group the new BIER Echo Return Codes registry as follows:
+    IANA is requested to create in the BIER Echo Request/Reply registry group the new Return Codes registry as follows:
     </t>
         <ul empty="true" spacing="normal">
-        <li>Registry Name: BIER Echo Return Codes</li>
+        <li>Registry Name: Return Codes</li>
         <li>Assignment Policy:</li>
         <li>0 - 247 - IETF Review</li>
         <li>248 - 251 - Experimental Use (Reserved, not to be assigned)</li>
         <li>252 - 255 - Private Use (Reserved, not to be assigned)</li>
         </ul>
-        
+
         <table anchor="iana-bier-ping-return-codes-tbl" align="center">
-          <name>BIER Echo Return Codes</name>
+          <name>Return Codes</name>
           <thead>
             <tr>
               <th align="left">Value</th>
@@ -2072,7 +2078,7 @@ This section describes registration procedures for Type registries in BIER Echo 
       <section anchor="sect-5.5.0" numbered="true" toc="default">
         <name>TLVs</name>
         <t>
-           IANA is requested to create in the BIER OAM registry group a registry for the Type field
+           IANA is requested to create in the BIER Echo Request/Reply registry group a registry for the Type field
            of top-level TLVs, as well as sub-registries for the associated sub-TLVs. Note that the
    meaning of a sub-TLV is scoped by the TLV.  The number of spaces for the
    sub-TLVs of various TLVs is independent.
