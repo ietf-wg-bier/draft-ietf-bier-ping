@@ -211,7 +211,7 @@ This document specifies the mechanism and basic BIER OAM packet
       Otherwise, the value is one from the IANA registry "BIER Next Protocol Identifiers" <xref target="IANA-Next-Protocol-Identifiers"/>.</li>
       <li>Reserved - a two-octet field. The value MUST be zeroed on transmission and ignored on receipt.</li>
         <li>BIER OAM Message Length - a four-octet field that reflects the length of the OAM message in octets, including the
-      header and the Messsage Type Dependent Data.</li>
+      header and the Message Type Dependent Data.</li>
       </ul>
 </section>
 
@@ -297,7 +297,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
       64-bit truncated version (48-bit sec + 16-bit nsec) format.</li>
       <li>RTF (Responder Timestamp Format) - a four-bit field. When the field is set to 2, the Timestamp Received
       field is (in seconds and picoseconds, according to the
-      Initiator's clock) in 64-bit long NTP format <xref target="RFC5905" format="default"/>. When field's value is 3, the
+      responding BFR's clock) in 64-bit long NTP format <xref target="RFC5905" format="default"/>. When field's value is 3, the
       format of the Timestamp Received is as defined in IEEE 1588-2008 (1588v2) Precision Time
       Protocol <xref target="IEEE.1588.2008"/> for 64-bit truncated version (48-bit sec + 16-bit nsec).
       The Initiator MUST zero RTF in the Echo Request, and the Responder MUST ignore the value on receipt.
@@ -311,7 +311,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
    This mode can be used for unidirectional path validation.  When the
    Reply Mode is set to 2, the Responder Bit-Forwarding Router (BFR) encapsulates the Echo
    reply payload with the IP/UDP header. The Responder BFR uses the BFIR-id field in the BIER header to
-   determine which IP address family to use in the IP/UDP encaspulation. If the BFIR-id is associated with IPv4 and IPv6 addresses,
+   determine which IP address family to use in the IP/UDP encapsulation. If the BFIR-id is associated with IPv4 and IPv6 addresses,
    the Responder uses its local policy to select the address family. When the Initiator intends to validate
    the return BIER path, the Reply Mode will be set to 3 so that the
    Responder BFR will encapsulate the Echo Reply with the BIER header.
@@ -1746,7 +1746,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
    This document requests a UDP port TBD1 to be allocated by IANA for
    BIER Echo.</t>
       <t>Service Name bier-echo</t>
-      <t>Transport Protocol UDP, TCP</t>
+      <t>Transport Protocol UDP</t>
       <t>Assignee IESG iesg@ietf.org</t>
       <t>Contact IETF Chair chair@ietf.org</t>
       <t>Description The UDP destination port number for the IP/UDP encapsulated BIER Echo Reply message.</t>
@@ -1839,19 +1839,25 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
         </table>
  </section>
 
+      <section anchor="iana-bier-echo-registry-group" numbered="true" toc="default">
+        <name>BIER Echo Request/Reply Registry Group</name>
+        <t>
+   IANA is requested to create and maintain the "BIER Echo Request/Reply" registry group containing the registries listed below.</t>
+      </section>
+
      <section anchor="iana-echo-ping-parameters" numbered="true" toc="default">
         <name>BIER Echo Request/Echo Reply Registries</name>
         <t>
-  IANA is requested to create three BIER Echo Request/Echo Reply registries in the BIER OAM registry group, as described below.
+  IANA is requested to create three BIER Echo Request/Echo Reply registries in the BIER Echo Request/Reply registry group, as described below.
         </t>
-        
+
       <section anchor="iana-bier-ping-reply-mode" numbered="true" toc="default">
-        <name>BIER Echo Reply Modes</name>
+        <name>Reply Modes</name>
           <t>
-    IANA is requested to create in the BIER OAM registry group the new BIER Echo Reply Mode registry as follows:
+    IANA is requested to create in the BIER Echo Request/Reply registry group the new Reply Modes registry as follows:
     </t>
         <ul empty="true" spacing="normal">
-        <li>Registry Name: BIER Echo Reply Mode</li>
+        <li>Registry Name: Reply Modes</li>
         <li>Assignment Policy:</li>
         <li>0 - 247 - IETF Review</li>
         <li>248 - 251 - Experimental Use (Reserved, not to be assigned)</li>
@@ -1859,7 +1865,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
         </ul>
         
         <table anchor="iana-bier-reply-modes-tbl" align="center">
-          <name>BIER Echo Reply Modes</name>
+          <name>Reply Modes</name>
           <thead>
             <tr>
               <th align="left">Value</th>
@@ -1913,20 +1919,20 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
       </section>
 
       <section anchor="iana-bier-ping-return-codes" numbered="true" toc="default">
-        <name>BIER Echo Return Codes</name>
+        <name>Return Codes</name>
    <t>
-    IANA is requested to create in the BIER OAM registry group the new BIER Echo Return Codes registry as follows:
+    IANA is requested to create in the BIER Echo Request/Reply registry group the new Return Codes registry as follows:
     </t>
         <ul empty="true" spacing="normal">
-        <li>Registry Name: BIER Echo Return Codes</li>
+        <li>Registry Name: Return Codes</li>
         <li>Assignment Policy:</li>
         <li>0 - 247 - IETF Review</li>
         <li>248 - 251 - Experimental Use (Reserved, not to be assigned)</li>
         <li>252 - 255 - Private Use (Reserved, not to be assigned)</li>
         </ul>
-        
+
         <table anchor="iana-bier-ping-return-codes-tbl" align="center">
-          <name>BIER Echo Return Codes</name>
+          <name>Return Codes</name>
           <thead>
             <tr>
               <th align="left">Value</th>
@@ -2017,7 +2023,7 @@ This section describes registration procedures for Type registries in BIER Echo 
         </t>
 
            <table anchor="iana-bier-assign-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>TLV and Sub-TLV Registration Ranges</name>
           <thead>
             <tr>
               <th align="left">Range</th>
@@ -2072,8 +2078,8 @@ This section describes registration procedures for Type registries in BIER Echo 
       <section anchor="sect-5.5.0" numbered="true" toc="default">
         <name>TLVs</name>
         <t>
-           IANA is requested to create in the BIER OAM registry group a registry for the Type field
-           of top-level TLVs. as well as sub-registries for the associated sub-TLVs. Note that the
+           IANA is requested to create in the BIER Echo Request/Reply registry group a registry for the Type field
+           of top-level TLVs, as well as sub-registries for the associated sub-TLVs. Note that the
    meaning of a sub-TLV is scoped by the TLV.  The number of spaces for the
    sub-TLVs of various TLVs is independent.
 </t>
@@ -2088,7 +2094,7 @@ The TLVs requested by this document for the IANA
    </t>
    
            <table anchor="iana-bier-ping-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>BIER OAM TLVs</name>
           <thead>
             <tr>
               <th align="left">Type</th>
@@ -2170,7 +2176,7 @@ The TLVs requested by this document for the IANA
         </ul>
 
            <table anchor="iana-bier-ping-sub-tlvs-tbl" align="center">
-          <name>TLVs</name>
+          <name>Sub-TLVs for TLV Type 4</name>
           <thead>
             <tr>
               <th align="left">Type</th>
