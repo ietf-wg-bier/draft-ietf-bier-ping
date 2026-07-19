@@ -363,13 +363,13 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
    </t>
         <t>
    When the received header BitString in the Echo Request packet
-   contains only its BFR-ID, "Replying BFR is the only BFER in the header BitString"
+   contains only its BFR-ID, "Replying BFR is the only BFER in the BIER header BitString"
    is set in the reply.  This value implies that the receiver
    is BFER, and the packet is not forwarded to any more neighbors.</t>
         <t>
    When the received header BitString in the Echo Request packet
    contains its BFR-ID in addition to other BFR-IDs, "Replying BFR is
-   one of the BFERs in the header BitString" is set in the reply.  This
+   one of the BFERs in the BIER header BitString" is set in the reply.  This
    value implies that the Responder is a BFER and the packet is further
    forwarded to one or more neighbors.</t>
         <t>
@@ -1495,8 +1495,8 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
    the Initiator expects a response.  In the traceroute mode, the
    Initiator MAY include Target SI-BitString TLV to control the path
    trace towards any specific BFER or set of BFERs.  The Initiator on
-   receiving a reply with the Return code "Replying BFR is the only BFER in the header BitString"
-   or "Replying BFR is one of the BFERs in the header BitString" MUST unset the respective BFR-ID from
+   receiving a reply with the Return code "Replying BFR is the only BFER in the BIER header BitString"
+   or "Replying BFR is one of the BFERs in the BIER header BitString" MUST unset the respective BFR-ID from
    Target SI-BitString for any subsequent Echo Request.</t>
         <t>
    The Initiator MAY include DDMAP TLV (<xref target="sect-3.3.4"/>) in
@@ -1509,7 +1509,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
    MUST set the Proto as 5. In ping mode, the TTL field in the BIER header MUST be set to 255.  In
    traceroute mode, the TTL in the BIER header is set successively, starting
    from 1 and MUST stop sending the Echo Request if it receives a reply
-   with Return code as "Replying BFR is the only BFER in the header BitString" from all BFER listed in Target SI-BitString TLV.
+   with Return code as "Replying BFR is the only BFER in the BIER header BitString" from all BFER listed in Target SI-BitString TLV.
    </t>
       </section>
       
@@ -1647,10 +1647,10 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
 
         <ul spacing="normal">
           <li>Set the Best-return-code to "Replying BFR is the only BFER
-          in the header BitString", and go to <xref target="sect-4.5"/> if the Responder is
+          in the BIER header BitString", and go to <xref target="sect-4.5"/> if the Responder is
       BFER and there are no more bits in the BIER header BitString left for
       forwarding.</li>
-          <li>Set the Best-return-code to "Replying BFR is one of the BFERs in the header BitString", and include DDMAP TLV if the
+          <li>Set the Best-return-code to "Replying BFR is one of the BFERs in the BIER header BitString", and include DDMAP TLV if the
       Responder is BFER and there are more bits in BitString left for
       forwarding.  Also, include the Multipath information as defined in
       <xref target="sect-4.2" format="default"/> if the received Echo Request carries Multipath Entropy
@@ -1682,7 +1682,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
    include the Ingress Interface TLV and populate the address from
    Interface-I.</t>
         <t>
-   When the Best-return-code is "Replying BFR is one of the BFERs in the header BitString", it MUST include Responder BFER TLV.</t>
+   When the Best-return-code is "Replying BFR is one of the BFERs in the BIER header BitString", it MUST include Responder BFER TLV.</t>
         <dl newline="false" spacing="normal" indent="3">
           <dt/>
           <dd>
@@ -1703,7 +1703,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
       Egress BitString MUST be included in DDMAP TLV.</dd>
         </dl>
         <t>
-   When the Best-return-code is "Replying BFR is the only BFER in the header BitString", it MUST include Responder BFER TLV.</t>
+   When the Best-return-code is "Replying BFR is the only BFER in the BIER header BitString", it MUST include Responder BFER TLV.</t>
         <t>
    The Responder MUST set the Message Type as 2 and Return Code as Best-
    return-code.  The Proto field MUST be set to 0.</t>
@@ -1729,7 +1729,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
    If receiving Echo Reply has DDMAP TLV, the Initiator MUST
    copy the TLV to subsequent Echo Request(s).</t>
         <t>
-   If one of the Echo Reply is received with Return Code as "Replying BFR is one of the BFERs in the header BitString", it SHOULD reset the BFR-ID
+   If one of the Echo Reply is received with Return Code as "Replying BFR is one of the BFERs in the BIER header BitString", it SHOULD reset the BFR-ID
    of the Responder from Target SI-BisString TLV in subsequent Echo
    Request. This step helps avoid any BFR that is both BFER and transit BFR to respond with Echo Reply continuously.
    </t>
@@ -1952,12 +1952,12 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
             </tr>
             <tr>
               <td align="left">3</td>
-              <td align="center">Replying BFR is the only BFER in the header BitString</td>
+              <td align="center">Replying BFR is the only BFER in the BIER header BitString</td>
               <td align="left">This document</td>
             </tr>
             <tr>
               <td align="left">4</td>
-              <td align="center">Replying BFR is one of the BFERs in the header BitString</td>
+              <td align="center">Replying BFR is one of the BFERs in the BIER header BitString</td>
               <td align="left">This document</td>
             </tr>
             <tr>
