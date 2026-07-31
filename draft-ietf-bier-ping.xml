@@ -2154,7 +2154,7 @@ The TLVs requested by this document for the IANA
             </tr>
             <tr>
              <td align="left">8</td>
-              <td align="center">The Erroneous Echo Request</td>
+              <td align="center">Erroneous Echo Request</td>
               <td align="left">This document</td>
               <td align="left">No Sub-TLVs</td>
             </tr>
