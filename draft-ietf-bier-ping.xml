@@ -879,7 +879,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
             <dd>
             <t>- each field is either four-octet or sixteen-octet, depending on the value of Address Type field.</t>
 
-	<t>Note that values of the Address Type field  are mapped to combinations of lengths of
+	<t>Note that values of the Address Type field are mapped to combinations of lengths of
 	Downstream Address (DA) and Downstream Address Interface (DIA) fields as shown im <xref target="address-types-length-tbl"/>.</t>
 
         <table anchor="address-types-length-tbl" align="center">
@@ -1259,7 +1259,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
           <dd>A two-octet field. Set according to <xref target="ip-address-types-tbl"/>. Any other value is invalid.</dd>
             <dt>BFR-Prefix</dt>
             <dd>
-      This field carries the local BFR-Prefix of the replying BFR. This
+      This field carries the local BFR-Prefix (Section 2 <xref target="RFC8279"/>) of the replying BFR. This
       TLV MAY be included by Responding BFR in BIER Echo Reply packet.</dd>
           </dl>
         <table anchor="ip-address-types-tbl" align="center">
@@ -1300,7 +1300,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |     TLV Type = 7              |        Length = 8 or 20       |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-  |         Reserved              |         Address Family        |
+  |         Reserved              |          Address Type         |
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |                                                               |
   ~           Ingress Interface Address (4 or 16 bytes)           ~
@@ -1328,7 +1328,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
 <text x="100" y="68">TLV Type = 7</text>
 <text x="396" y="68">Length = 8 or 20</text>
 <text x="116" y="100">Reserved</text>
-<text x="396" y="100">Address Family</text>
+<text x="396" y="100"> Address Type </text>
 <text x="8" y="148">~</text>
 <text x="264" y="148">Ingress Interface Address (4 or 16 bytes)</text>
 <text x="520" y="148">~</text>
@@ -1341,12 +1341,12 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
 
           <dl newline="false" spacing="normal" indent="3">
           <dt>Length</dt>
-          <dd>The Length field, depending on the Address Family value - 8 or 20.</dd>
+          <dd>The Length field, depending on the Address Type value - 8 or 20.</dd>
             <dt>Reserved</dt>
           <dd>A two-octet field. The value MUST be zeroed on transmission and ignored on receipt.</dd>
-            <dt>Address Family</dt>
+            <dt>Address Type</dt>
             <dd>
-      A two-octet field. Set its value according to <xref target="ip-address-types-tbl"/>.
+      A two-octet field. Set its value according to <xref target="address-types-tbl"/>.
      </dd>
           </dl>
           <dl newline="true" spacing="normal" indent="3">
