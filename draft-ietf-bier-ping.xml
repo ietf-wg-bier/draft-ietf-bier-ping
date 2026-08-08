@@ -1363,7 +1363,7 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
 This TLV provides information about the type and location of the problem in the BIER Echo Request.
 The BFER replying to the request MUST include the Erroneous Echo Request TLV if the Return Code
    for the BIER Echo Reply is either "Malformed Echo Request received" (1) or "One or more of the TLVs is not supported" (2).
-   In other cases, the Responder BFD MAY include the Erroneous Echo Request TLV.
+   In other cases, the Responder BFR MAY include the Erroneous Echo Request TLV.
    This TLV has the following format:</t>
    <figure anchor="erroneous-tlv-fig">
    <name>The Erroneous Echo Request TLV Format</name>
