@@ -93,6 +93,9 @@ This document specifies the mechanism and basic BIER OAM packet
    that uses the same values of BIFT-id, BSL, Entropy, and DSCP fields as in the BIER header of the monitored BIER flow.
    Note that the BIER Echo Request/Reply protocol doesn't modify the content of the OAM field in the BIER header (Section 2 of <xref target="RFC8296"/>).
    </t>
+   <t>
+   Traceroute mode, as specified in this document, is scoped to BIER over MPLS <xref target="RFC8296"/>; ping mode has no such restriction.
+   </t>
     </section>
     <section anchor="sect-2" numbered="true" toc="default">
       <name>Conventions used in this document</name>
@@ -1430,6 +1433,9 @@ are the same defined in Section 3.4.1.1 of <xref target="RFC8029" format="defaul
       <name>BIER Ping and Traceroute Operations</name>
       <t>
    This section describes aspects of BIER ping and traceroute operations.</t>
+      <t>
+   Traceroute mode, as specified in this document, is scoped to BIER over MPLS.
+   Per-hop processing for other BIER data planes is outside the scope of this document.</t>
       <section anchor="sect-4.1" numbered="true" toc="default">
         <name>BIER OAM Processing</name>
         <t>
