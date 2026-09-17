@@ -88,7 +88,7 @@ This document specifies the mechanism and basic BIER OAM packet
    format that can be used to perform failure detection and isolation on
    the BIER data plane without any dependency on other layers, like the IP layer.
    The specification conforms to R-1 through R-3, R-5, and R-11 requirements
-   listed in <xref target="I-D.ietf-bier-oam-requirements"/>. To conform to R-11,
+   listed in <xref target="RFC9974"/>. To conform to R-11,
    BIER Echo Request message is encapsulated in the BIER header <xref target="RFC8296"/>
    that uses the same values of BIFT-id, BSL, Entropy, and DSCP fields as in the BIER header of the monitored BIER flow.
    Note that the BIER Echo Request/Reply protocol doesn't modify the content of the OAM field in the BIER header (Section 2 of <xref target="RFC8296"/>).
@@ -886,7 +886,7 @@ is displayed in <xref target="bier-echo-fig"/>. The BIER Echo Request/Reply mess
             <t>- each field is either four-octet or sixteen-octet, depending on the value of Address Type field.</t>
 
 	<t>Note that values of the Address Type field are mapped to combinations of lengths of
-	Downstream Address (DA) and Downstream Address Interface (DIA) fields as shown im <xref target="address-types-length-tbl"/>.</t>
+	Downstream Address (DA) and Downstream Address Interface (DIA) fields as shown in <xref target="address-types-length-tbl"/>.</t>
 
         <table anchor="address-types-length-tbl" align="center">
           <name>The Address Type Lengths</name>
@@ -1617,7 +1617,7 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
          </li>
          <li>
         The Receiver sets the Best-return-code to "Malformed Echo Request received"
-        if the Incoming S_-BitString TLV is present in the BIER Echo Request message.
+        if the Incoming SI-BitString TLV is present in the BIER Echo Request message.
 Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be included in the BIER Echo Reply.
          Go to <xref target="sect-4.5"/>.
          </li>
@@ -2297,7 +2297,7 @@ The TLVs requested by this document for the IANA
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4443.xml"/>
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9326.xml"/>
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9570.xml"/>
-      <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-bier-oam-requirements.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9974.xml"/>
       <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-bier-bierin6.xml"/>
 
       </references>
