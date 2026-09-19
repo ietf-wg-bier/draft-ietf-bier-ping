@@ -143,7 +143,7 @@ This document specifies the mechanism and basic BIER OAM packet
    BIER OAM is defined to stay within the BIER layer by directly following
    the BIER header without mandating the need for an IP header.
    To produce information that is useful to an operator, information that statistically reflects conditions experienced by the monitored data flow,
-   the operator must be able to ensure that active OAM packets, e.g., BIER Echo Request, traverse the set of links and nodes
+   the operator must be able to ensure that active OAM packets (the term "active OAM" is used as described in <xref target="RFC10014"/>), e.g., BIER Echo Request, traverse the set of links and nodes
    and receive the same forwarding treatment as the monitored flow. Hence, all fields in the BIER header that affect packet forwarding (e.g., BFIR-id, BitString)
    must be set to the values applied to the monitored data flow.
    <xref target="RFC8296"/> defines a 4-bit field as "Proto" to identify the payload following
@@ -1848,6 +1848,10 @@ Also, the Erroneous Echo Request TLV (<xref target="sect-3.3.8"/>) MUST be inclu
         <name>BIER Echo Request/Reply Registry Group</name>
         <t>
    IANA is requested to create and maintain the "BIER Echo Request/Reply" registry group containing the registries listed below.</t>
+        <t>
+   This follows precedent set by similar registry-group reorganizations for other
+   OAM/Ping-related registries <xref target="RFC7214"/>, <xref target="RFC7537"/>,
+   <xref target="RFC9041"/>, <xref target="RFC7737"/>.</t>
       </section>
 
      <section anchor="iana-echo-ping-parameters" numbered="true" toc="default">
@@ -2227,6 +2231,9 @@ The TLVs requested by this document for the IANA
    theoretically possible, spoofing BFIR ID in the BIER Header presents itself as a serious challenge.
    As a result, this threat is not a big concern.</t>
   <t>
+   Setting the BIER header TTL to 255 in ping mode (<xref target="sect-4.1"/>) follows the same
+   principle as the Generalized TTL Security Mechanism (GTSM) <xref target="RFC5082"/>.</t>
+  <t>
    As with ICMP or LSP Ping, a traceroute can be used to obtain network
    information. It is RECOMMENDED that the implementation checks the
    integrity of BFIR of the Echo messages against any locally secured list
@@ -2292,6 +2299,12 @@ The TLVs requested by this document for the IANA
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9326.xml"/>
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9570.xml"/>
       <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9974.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.10014.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5082.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7214.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7537.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9041.xml"/>
+      <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7737.xml"/>
       <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-bier-bierin6.xml"/>
 
       </references>
