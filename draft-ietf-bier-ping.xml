@@ -32,9 +32,10 @@
       </address>
     </author>
     <author initials="G." surname="Mirsky" fullname="Greg Mirsky">
-      <organization>Independent</organization>
+      <organization>Ciena Corporation</organization>
       <address>
         <email>gregimirsky@gmail.com</email>
+        <email>grmirsky@ciena.com</email>
       </address>
     </author>
     
@@ -88,9 +89,6 @@ This document specifies the mechanism and basic BIER OAM packet
    BIER Echo Request message is encapsulated in the BIER header <xref target="RFC8296"/>
    that uses the same values of BIFT-id, BSL, Entropy, and DSCP fields as in the BIER header of the monitored BIER flow.
    Note that the BIER Echo Request/Reply protocol doesn't modify the content of the OAM field in the BIER header (Section 2 of <xref target="RFC8296"/>).
-   </t>
-   <t>
-   Traceroute mode, as specified in this document, is scoped to BIER over MPLS; ping mode has no such restriction.
    </t>
    <t>
    Traceroute mode, as specified in this document, is scoped to BIER over MPLS <xref target="RFC8296"/>; ping mode has no such restriction.
